@@ -1,0 +1,164 @@
+client_homepage:
+    path:     /home
+    defaults: { _controller: ClientBundle:Client:home }
+client_fidelite:
+    path:     /fidelite
+    defaults: { _controller: ClientBundle:Client:fidelite }
+client_transformer:
+    path:     /transformer
+    defaults: { _controller: ClientBundle:Client:transformer }
+client_compte:
+    path:     /compte
+    defaults: { _controller: ClientBundle:Client:compte }
+client_mail:
+    path:     /change-mail
+    defaults: { _controller: ClientBundle:Client:modifmail }
+client_username:
+    path:     /change-username
+    defaults: { _controller: ClientBundle:Client:modifusername }
+
+
+
+HommeProduit:
+    path:     /HommeProduit
+    defaults: { _controller: ClientBundle:Client:HommeProduit }
+FemmeProduit:
+    path:     /FemmeProduit
+    defaults: { _controller: ClientBundle:Client:FemmeProduit }
+AccessoireProduit:
+    path:     /AccessoireProduit
+    defaults: { _controller: ClientBundle:Client:AccessoireProduit }
+EnfantProduit:
+    path:     /EnfantProduit
+    defaults: { _controller: ClientBundle:Client:EnfantProduit }
+
+LikeProduit:
+    path:     /LikeProduit
+    defaults: { _controller: ClientBundle:Client:LikeProduit }
+LikeProduitHomme:
+    path:     /LikeProduitHomme
+    defaults: { _controller: ClientBundle:Client:LikeProduitHomme }
+
+LikeProduitFemme:
+    path:     /LikeProduitFemme
+    defaults: { _controller: ClientBundle:Client:LikeProduitFemme }
+
+LikeProduitEnfant:
+    path:     /LikeProduitEnfant
+    defaults: { _controller: ClientBundle:Client:LikeProduitEnfant }
+
+LikeProduitAccessoires:
+    path:     /LikeProduitAccessoires
+    defaults: { _controller: ClientBundle:Client:LikeProduitAccessoires }
+
+voirplus:
+    path:     /voirplus
+    defaults: { _controller: ClientBundle:Client:voirplus }
+voirplusPromo:
+    path:     /voirplusPromo
+    defaults: { _controller: ClientBundle:Client:voirplusPromo }
+
+ons:
+    path:     /ons
+    defaults: { _controller: ClientBundle:Client:ons }
+
+
+
+parking:
+    path:     /parking
+    defaults: { _controller: ClientBundle:parking:disponibleaffiche }
+afficheDispo:
+    path:     /parkingdispo
+    defaults: { _controller: ClientBundle:parking:disponible}
+afficheqr:
+    path:     /parkingqr
+    defaults: { _controller: ClientBundle:parking:qrAffiche}
+
+
+
+
+client_panier:
+    path:     /client_panier
+    defaults: { _controller: ClientBundle:Panier:panier }
+delete_lignecommande:
+    path:     /delete_lignecommande
+    defaults: { _controller: ClientBundle:Panier:deletelignecommande }
+plus_lignecommande:
+    path:     /plus_lignecommande
+    defaults: { _controller: ClientBundle:Panier:pluslignecommande }
+moin_lignecommande:
+    path:     /moin_lignecommande
+    defaults: { _controller: ClientBundle:Panier:moinlignecommande }
+modifier_lignecommande:
+    path:     /modifier_lignecommande
+    defaults: { _controller: ClientBundle:Panier:modifierlignecommande }
+modifierquantite_lignecommande:
+    path:     /modifierquantite_lignecommande
+    defaults: { _controller: ClientBundle:Panier:modifierquantiteLC }
+client_produit:
+    path:     /client_produit
+    defaults: { _controller: ClientBundle:Panier:produit }
+ajouter_lignecommande:
+    path:     /ajouter_lignecommande
+    defaults: { _controller: ClientBundle:Panier:ajouterlignecommande }
+supprimer_commande:
+    path:     /supprimer_commande
+    defaults: { _controller: ClientBundle:Panier:supprimercommande }
+passer_commande:
+    path:     /passer_commande
+    defaults: { _controller: ClientBundle:Panier:passercommande }
+paiement:
+    path:     /paiement
+    defaults: { _controller: ClientBundle:Panier:paiement }
+
+
+
+
+
+
+
+
+BoutiqueEnseigne:
+    path:     /BoutiqueEnseigne
+    defaults: { _controller: ClientBundle:Client:BoutiqueEnseigne }
+
+
+RestaurantEnseigne:
+    path:     /RestaurantEnseigne
+    defaults: { _controller: ClientBundle:Client:RestaurantEnseigne }
+client_reclamation:
+    path:     /reclamationclient
+    defaults: { _controller: ClientBundle:Enseigne:reclamationclient }
+
+
+enseigne:
+    path:     /enseigne
+    defaults: { _controller: ClientBundle:Enseigne:enseigne }
+
+voirplusenseigne:
+    path:     /voirplusenseigne
+    defaults: { _controller: ClientBundle:Enseigne:voirplusenseigne }
+    
+    
+promo_Client:
+    path:     /promo_Client
+    defaults: { _controller: ClientBundle:Client:promononExp }
+search_keyword:
+     path:     /search_keyword
+     defaults: { _controller: ClientBundle:Client:search_keyword }
+promo_quantite:
+    path:     /quantite
+    defaults: { _controller: ClientBundle:Client:quantite }
+chercherpromotionClient:
+    path:     /chercherpromotionClient
+    defaults: { _controller: ClientBundle:Client:chercherpromotionClient }
+
+
+
+
+
+client_offreEmp:
+    path:     /offreEmp
+    defaults: { _controller: ClientBundle:Offre:search2 }
+
+

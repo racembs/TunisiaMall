@@ -1,0 +1,197 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+    <link href="{{ asset('template/css/vroom.css') }}" rel='stylesheet' type='text/css' />
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <div class="clearfix">
+                    <div class="graph">
+                        <div class="header-section">
+                            <div class="top_menu">
+                                <div class="main-search">
+                                    <form action="{{ path('tm_chercherpromotion') }}" method="get">
+                                        <input name="srchpro" type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
+                                        <input type="submit" value=""/>
+                                    </form>
+                                    <div class="close"><img src="{{ asset('template/images/cross.png') }}" /></div>
+                                </div>
+                                <div class="srch"><button></button></div>
+                                <script type="text/javascript">
+                                    $('.main-search').hide();
+                                    $('button').click(function (){
+                                            $('.main-search').show();
+                                            $('.main-search text').focus();
+                                        }
+                                    );
+                                    $('.close').click(function(){
+                                        $('.main-search').hide();
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="graph">
+                        <div class="form-group1">
+                            <div class="form-group">
+                                <div>
+
+
+                                    <div class="graph-form">
+
+                                        <div class="form-body">
+
+
+                                            <div>
+                                                {% for flashMessage in app.session.flashbag.get('notice') %}
+
+                                                    <div class="alert alert-info">
+                                                        {{ flashMessage }}
+                                                    </div>
+
+                                                {% endfor %}
+                                            </div>
+
+
+
+                                            <h3 class="inner-tittle two">ajouter</h3>
+
+                                            {{ form(form) }}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                {% for label, messages in app.flashes(['warning', 'error']) %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ label }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="graph">
+                    <div class="tables">
+                        <h3 class="inner-tittle two">      Les Promotions </h3>
+                        <table id="affichage" class="table"> <thead> <tr>
+                                <th>nom</th> <th>description</th> <th>prix</th> <th>date d'expiration</th>
+                                <th>date de creation</th><th>quantite</th><th>image</th> <th>enseigne</th></tr> </thead>
+                            <tbody>
+                            <!--<tr class="active"> <th scope="row">1</th> <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr>
+                            <tr> <th scope="row">2</th> <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr> <tr class="success">
+                                <th scope="row">3</th> <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr> <tr> <th scope="row">4</th>
+                                <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr> <tr class="info"> <th scope="row">5</th>
+                                <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr> <tr> <th scope="row">6</th> <td>Column content</td> <td>Column content</td>
+                                <td>Column content</td> </tr> <tr class="warning"> <th scope="row">7</th> <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr>
+                            <tr> <th scope="row">8</th> <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr>
+                            <tr class="danger"> <th scope="row">9</th> <td>Column content</td> <td>Column content</td> <td>Column content</td> </tr>-->
+                            {% for promo in promotions %}
+                                <tr >
+                                    <td class="success"> {{ promo.nom }}</td>
+                                    <td lass="danger"> {{ promo.description }}</td>
+                                    <td class="info"> {{ promo.prix }}</td>
+                                    <td class="active"> {{ promo.dateExpiration.format('Y-m-d') }}</td>
+                                    <td class="warning"> {{ promo.dateCreation.format('Y-m-d') }}</td>
+                                    <td> {{ promo.quantite }}</td>
+                                    <td class="success"> <img style="width: 70px" src="{{ asset('images/'~promo.image) }}" /></td>
+                                    <td class="info"> {{ promo.idenseignepromo.nom }}</td>
+                                    <td><a href="{{ path('tm_promotionSupprimer',{'id':promo.id}) }}" onclick="return confirm('Etes vous sur de supprimer cette promotion?')"><i width="100px" class="fa fa-trash-o"></i></a></td>
+
+                                    <td><a href="{{ path('tm_modifierpromotion',{'id':promo.id}) }}" onclick="return confirm('Etes vous sur de modifier cette promotion?')"><i class="fa fa-pencil-square-o"></i></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody> </table>
+                        <div id="divajax">
+
+                        </div>
+                    </div>
+
+                </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <script src="{{ asset('jquery-3.2.1.js') }}"></script>
+  {#  <script>
+        $("#searchPromo").keyup(
+            function () {
+                var serie=$('#searchPromo').val();
+                var DATA='serie'+serie;
+                $.ajax({
+                    type: "POST",
+                    url:"{{ path('tm_chercherpromoajax') }}",
+                    data:DATA,
+                    success:function (data) {
+                        console.log(data);
+        $("#divajax").html("<table id='res' border='1'>"+
+            " <thead> <tr>\n" +
+            "<th>nom</th> <th>description</th> <th>prix</th> <th>date d'expiration</th>\n" +
+            " <th>date de creation</th><th>quantite</th><th>image</th>" +
+            " <th>enseigne</th></tr> </thead></table>");
+        $.each(data,function (k,el) {
+            $("#affichage").hide();
+            $('#res').append("<tr > <td class='success'> {{ el.nom }}</td>" +
+                "<td lass='danger'> {{ el.description }}</td>" +
+                " <td class='info'> {{ el.prix }}</td>" +
+                "<td class='active'> {{ el.dateExpiration.format('Y-m-d') }}</td>" +
+                " <td class='warning'> {{ el.dateCreation.format('Y-m-d') }}</td>" +
+                " <td> {{ el.quantite }}</td>" +
+                " <td class='success'> <img style='width: 70px'src='{{ asset('images/'~el.image) }}''/></td>" +
+                " <td class='info'> {{ el.idenseignepromo.nom }}</td>" +
+                "  <td><a href='{{ path('tm_promotionSupprimer',{'id':el.id}) }}' onclick='return confirm('Etes vous sur de supprimer cette promotion?')'><i width='100px' class='fa fa-trash-o'></i></a></td>" +
+
+                "<td><a href="{{ path('tm_modifierpromotion',{'id':el.id}) }}" onclick='return confirm('Etes vous sur de modifier cette promotion?')'>"+"<i class='fa fa-pencil-square-o'></i></a></td>"+
+                "</tr>"
+            );
+        }
+        );}
+                })});
+
+    </script>
+#}
+    <script src="{{ asset('template/js/bootstrap.min.js') }}"></script>
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,171 @@
+mobile_homepage:
+    path:     /
+    defaults: { _controller: MobileBundle:Default:index }
+client_findcartes:
+    path:     /findcarte/{id}
+    defaults: { _controller: MobileBundle:Client:findcartes }
+login:
+    path:     /findusers
+    defaults: { _controller: MobileBundle:Client:login }
+user_update:
+    path:     /updateuser/{id}/{nom}/{prenom}/{username}/{password}/{mail}/{cin}/{numtel}
+    defaults: { _controller: MobileBundle:Client:updateuser }
+add_user:
+    path:     /adduser/{nom}/{prenom}/{username}/{password}/{mail}/{cin}/{numtel}
+    defaults: { _controller: MobileBundle:Client:adduser }
+transformer_pts:
+    path:     /transformer/{id}/{bon}
+    defaults: { _controller: MobileBundle:Client:transformer }
+search_carte:
+    path:     /searchcarte/{id}/{nom}
+    defaults: { _controller: MobileBundle:Client:searchcarte }
+setcode:
+    path:     /setcode/{username}/{code}
+    defaults: { _controller: MobileBundle:Client:setcode }
+
+
+
+
+
+all:
+    path:     /Produit/all
+    defaults: { _controller: MobileBundle:Produit:all }
+
+
+LikeMobile:
+    path:     /LikeMobile/{iduser}/{idproduit}
+    defaults: { _controller: MobileBundle:Produit:LikeMobile }
+
+DislikeMobile:
+    path:     /DislikeMobile/{iduser}/{idproduit}
+    defaults: { _controller: MobileBundle:Produit:DislikeMobile }
+
+produitSearch:
+    path:     /produitSearch/{criteria}
+    defaults: { _controller: MobileBundle:Produit:produitSearch }
+filtre:
+    path:     /filtre
+    defaults: { _controller: MobileBundle:Produit:filtre }
+StatEnfant:
+    path:     /StatEnfant
+    defaults: { _controller: MobileBundle:Produit:StatEnfant}
+StatFemme:
+    path:     /StatFemme
+    defaults: { _controller: MobileBundle:Produit:StatFemme }
+StatHomme:
+    path:     /StatHomme
+    defaults: { _controller: MobileBundle:Produit:StatHomme}
+StatAccessoire:
+    path:     /StatAccessoire
+    defaults: { _controller: MobileBundle:Produit:StatAccessoire}
+Prix:
+    path:     /Prix/{prix}
+    defaults: { _controller: MobileBundle:Produit:Prix }
+Femmes:
+    path:     /Femmes
+    defaults: { _controller: MobileBundle:Produit:Femmes }
+
+Hommes:
+    path:     /Hommes
+    defaults: { _controller: MobileBundle:Produit:Hommes }
+
+Enfants:
+    path:     /Enfants
+    defaults: { _controller: MobileBundle:Produit:Enfants }
+
+Accessoires:
+    path:     /Accessoires
+    defaults: { _controller: MobileBundle:Produit:Accessoires }
+
+
+
+
+
+
+paiePanier:
+    path:     /paiePanier/{id}/{adresse}/{tel}/{ville}/{pays}
+    defaults: { _controller: MobileBundle:Panier:paiement }
+alls:
+    path:     /alls/{id}
+    defaults: { _controller: MobileBundle:Panier:alls }
+supprimerlc:
+    path:     /supprimerlc/{id}
+    defaults: { _controller: MobileBundle:Panier:supprimerlc }
+supprimerLCom:
+    path:     /supprimerLCom/{id}
+    defaults: { _controller: MobileBundle:Panier:supprimerLCom }
+autho:
+    path:     /autho
+    defaults: { _controller: MobileBundle:Panier:autho }
+modifqt:
+    path:     /modifqt/{id}/{qt}
+    defaults: { _controller: MobileBundle:Panier:modifqt }
+ajouterlc:
+    path:     /ajouterlc/{id}/{idProduit}/{qt}
+    defaults: { _controller: MobileBundle:Panier:ajouterlc }
+cmd:
+    path:     /cmd/{id}
+    defaults: { _controller: MobileBundle:Panier:cmd }
+
+
+
+
+alloffres:
+    path:     /tasks/all
+    defaults: { _controller: MobileBundle:Client:alloffres }
+
+
+
+
+
+
+
+
+
+
+
+espritapi_homepage:
+    path:     /
+    defaults: { _controller: MobileBundle:Enseigne:index }
+
+Afficer:
+    path:     /Afficer
+    defaults: { _controller: MobileBundle:Enseigne:Afficer }
+
+
+Allreclam:
+    path:     /Allreclam
+    defaults: { _controller: MobileBundle:Enseigne:Allreclam }
+
+newreclam:
+    path:     /newreclam
+    defaults: { _controller: MobileBundle:Enseigne:newreclam }
+
+
+
+findBoutique:
+    path:     /findBoutique
+    defaults: { _controller: MobileBundle:Enseigne:findBoutique }
+
+
+
+findRestaurant:
+    path:     /findRestaurant
+    defaults: { _controller: MobileBundle:Enseigne:findRestaurant }
+
+
+
+
+find_enseigne:
+    path:     /find/{id}
+    defaults: { _controller: MobileBundle:Enseigne:find }
+findBoutiqueDesc:
+    path:     /findBoutiqueDesc/{description}
+    defaults: { _controller: MobileBundle:Enseigne:findBoutiqueDesc }
+findRestDesc:
+    path:     /findRestDesc/{description}
+    defaults: { _controller: MobileBundle:Enseigne:findRestDesc }
+
+create_reclamation:
+    path:     /new
+    defaults: { _controller: MobileBundle:Enseigne:new }

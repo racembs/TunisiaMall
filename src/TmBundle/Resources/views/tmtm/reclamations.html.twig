@@ -1,0 +1,96 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+
+            <div class="graph-form">
+
+
+
+
+                <div class="graph">
+                    <nav class="nav-sidebar">
+                        <ul class="nav tabs">
+
+
+                           <!-- <li class=""><a href="#tab3" data-toggle="tab"><i class="fa fa-star-o"></i>Urgent</a></li> -->
+
+                            <form method="POST">
+
+                                <input type="submit" value="urgent"/>
+                            </form>
+
+
+                        </ul>
+                    </nav>
+                    <div class="tables">
+                        <table class="table table-hover"> <thead> <tr>
+
+                                <th>Nom</th>
+                                <th>Message</th>
+                                <th>Etat</th>
+
+                            </tr> </thead>
+                            <tbody>
+
+                            {% for reclamation in reclamations %}
+                                <tr >
+
+                                    <td > {{ reclamation.nom }}</td>
+                                    <td > {{ reclamation.text }}</td>
+                                   {% if reclamation.etat=='urgent' %}
+                                    <td >  <span class="ur">{{ reclamation.etat }}</span> </td> {% endif %}
+                                   {% if reclamation.etat=='not urgent' %}
+                                    <td >  <span class="work">{{ reclamation.etat }}</span> </td> {% endif %}
+
+
+                                </tr>
+                            {% endfor %}
+                            </tbody> </table>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <link rel="stylesheet" href="{{ asset('template/css/vroom.css')}}"/>
+    <script type="text/javascript" src="{{ asset('template/js/vroom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/js/TweenLite.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatejs/CSSPlugin.min.js') }}"></script>
+    <script src="{{ asset('templatejs/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('templatejs/scripts.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('templatejs/bootstrap.min.js') }}"></script>
+
+{% endblock %}

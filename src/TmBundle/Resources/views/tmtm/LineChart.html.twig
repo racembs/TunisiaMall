@@ -1,0 +1,119 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+    <div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+    <div class="inner-content">
+    <div class="clearfix">
+        <div class="graph">
+            <div class="header-section">
+                <div class="top_menu">
+                    <div class="main-search">
+                        <form action="{{ path('tm_chercherpromotion') }}" method="get">
+                            <input name="srchpro" type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
+                            <input type="submit" value=""/>
+                        </form>
+                        <div class="close"><img src="{{ asset('template/images/cross.png') }}" /></div>
+                    </div>
+                    <div class="srch"><button></button></div>
+                    <script type="text/javascript">
+                        $('.main-search').hide();
+                        $('button').click(function (){
+                                $('.main-search').show();
+                                $('.main-search text').focus();
+                            }
+                        );
+                        $('.close').click(function(){
+                            $('.main-search').hide();
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript" xmlns:font-style="http://www.w3.org/1999/xhtml"
+                xmlns:font-style="http://www.w3.org/1999/xhtml"></script>
+
+        <script src="{{asset('js/highcharts.js')}}"></script> <script src="{{asset('js/exporting.js')}}"></script>
+        <div style="margin-left: 20px">
+            <script type="text/javascript">
+                {{ chart(chart1) }}
+
+
+
+            </script>
+
+            <div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+
+
+        </div>
+
+        <div style="margin-left: 20px">
+            <fieldset>
+                <legend>Rapport</legend>
+                Le Nombre de j'aimes effectué pour les articles pour Femmes est : <span>{{ nbF }} </span> <br>
+                Le Nombre de j'aimes effectué pour les articles pour Hommes est :{{ nbH }} <br>
+                Le Nombre de j'aimes effectué pour les articles pour Enfants est :{{ nbE }} <br>
+                Le Nombre de j'aimes effectué pour les articles pour Accessoires est :{{ nbA }} <br>
+            </fieldset>
+        </div>
+
+        <br> <br> <br>
+        <div style="margin-left: 20px">
+
+
+            <script src="{{asset('js/jquery.min.js')}}"
+                    type="text/javascript"></script>
+
+            <script src="{{asset('js/highcharts.js')}}"></script>
+            <script src="{{asset('js/exporting.js')}}"></script>
+            <script type="text/javascript">
+                {{ chart(chart3) }}
+            </script>
+
+
+
+            <div id="piechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>{# empty Twig template #}
+        </div>
+
+        <br> <br>
+
+        <div style="margin-left: 20px">
+
+            <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"></script>
+
+            <script src="{{asset('js/highcharts.js')}}"></script> <script src="{{asset('js/exporting.js')}}"></script>
+
+            <script type="text/javascript">
+                {{ chart(chart2) }}
+            </script>
+
+            <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>{# empty Twig template #}
+        </div>
+    </div>
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+
+    <script src="{{ asset('template/js/bootstrap.min.js') }}"></script>
+    {{ parent() }}
+{% endblock %}

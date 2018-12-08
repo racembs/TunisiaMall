@@ -1,0 +1,11 @@
+{% extends "@FOSUser/compte.html.twig" %}
+{% block fos_user_content %}
+<div style="margin-top: -90px">
+    <label>mail actuelle: </label>{{ mail }}
+    <form method="POST">
+        <input type="text" name="mail">
+        <input type="submit" value="valider">
+    </form>
+</div>
+    <br><br>
+{% endblock fos_user_content %}

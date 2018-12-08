@@ -1,0 +1,38 @@
+{% extends '::index.html.twig' %}
+{% block body %}
+    <div style="background-color: red">
+<p style="color: white">{{ Message }}</p>
+
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <h2>Livraison</h2>
+            <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                    <div class="span4">
+                        <Form method="POST" action="{{ path('paiement') }}">
+                            <table>
+
+
+              <tr><td> addresse de livraison:</td><td><input type="text"  name="adresse" required></td> </tr>
+              <tr> <td>   numero de telephone:  </td><td><input type="number" name="tel" required></td></tr>
+                                <tr> <td>   Ville: </td><td><input type="text" name="ville" required></td></tr>
+                                <tr> <td> pays: </td><td><input type="text" name="pays" required></td></tr>
+                                <tr> <td> votre carte bancaire:</td><td><input type="text" name="carte" required></td></tr>
+                                <tr> <td>  Votre mot de passe:</td><td><input type="password" name="mdp" required></td></tr>
+
+                                 <tr> <td> <input type="submit" value="payement"></td></tr>
+                               </tr>
+                        </table>
+                        </Form>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+
+                <div class="graph-form">
+
+                <h3 class="inner-tittle two">Les Enseignes </h3>
+
+
+                <div class="graph">
+                    <div class="tables">
+                        <table class="table table-hover"> <thead> <tr>
+
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Nom Proprietaire</th>
+                                <th>Categorie</th>
+                                <th>CapaciteMax</th>
+                                <th>Capacite</th>
+                                <th>Pourcentagefidélité</th>
+                                <th>image</th>
+                            </tr> </thead>
+                            <tbody>
+
+                            {% for enseigne in enseignes %}
+                                <tr >
+
+                                    <td > {{ enseigne.nom }}</td>
+                                    <td > {{ enseigne.description }}</td>
+                                    <td > {{ enseigne.idproprietaire.nom }}</td>
+                                    <td > {{ enseigne.categorie }}</td>
+                                    <td > {{ enseigne.capaciteMax }}</td>
+                                    <td > {{ enseigne.capacite }}</td>
+                                    <td > {{ enseigne.pourcentagefidalite }}</td>
+                                    <td ><a href="home"><img width="50px" height="50px" src="{{ asset('images/'~ enseigne.image) }}"></a></td>
+
+                                    <td> <a href="{{ path('deleteEnseigne',{'id':enseigne.id}) }}">Supprimer</a></td>
+                                    <td> <a href="{{ path('updateenseigne',{'id':enseigne.id}) }}">Mise à jour</a></td>
+
+
+                                </tr>
+                            {% endfor %}
+                            </tbody> </table>
+
+
+                    </div>
+
+                    <td> <a href="{{ path('addenseigne') }}">Ajouter une enseigne</a></td>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <link rel="stylesheet" href="{{ asset('template/css/vroom.css')}}"/>
+    <script type="text/javascript" src="{{ asset('template/js/vroom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/js/TweenLite.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatejs/CSSPlugin.min.js') }}"></script>
+    <script src="{{ asset('templatejs/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('templatejs/scripts.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('templatejs/bootstrap.min.js') }}"></script>
+
+{% endblock %}

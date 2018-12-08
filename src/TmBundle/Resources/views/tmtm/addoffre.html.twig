@@ -1,0 +1,55 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+
+    <div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+
+            <div class="graph-form">
+
+                <h3 class="inner-tittle two">Ajout d'une offre </h3>
+                <div class="graph">
+
+                    {{ form(Form) }}
+                    {{ form_errors(Form) }}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <link rel="stylesheet" href="{{ asset('template/css/vroom.css')}}"/>
+    <script type="text/javascript" src="{{ asset('template/js/vroom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/js/TweenLite.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatejs/CSSPlugin.min.js') }}"></script>
+    <script src="{{ asset('templatejs/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('templatejs/scripts.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('templatejs/bootstrap.min.js') }}"></script>
+    {{ parent() }}
+{% endblock %}

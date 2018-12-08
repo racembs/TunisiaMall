@@ -1,0 +1,69 @@
+{% extends "indexadmin.html.twig" %}
+{% block body %}
+
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+<div class="graph">
+    <div class="tables">
+        <h3 class="inner-tittle two">      Les Commande </h3>
+        <table class="table"> <thead> <tr>
+
+                <form method="POST" action="commandesearch">
+
+                    <h6 style="color: white">date desiree</h6><input required type="date" name="search" placeholder="date desiree"/>
+                    <input type="submit" value="chercher">
+
+                </form>
+                <form method="POST" action="commandesearchuser">
+
+                    <h6 style="color: white">date desiree</h6><input required type="text" name="search" placeholder="username"/>
+                    <input type="submit" value="chercher">
+
+                </form>
+
+                <th>nom</th> <th>adresse</th> <th>ville</th> <th>pays</th>
+                <th>date de creation</th><th>numero de telephone</th><th>total</th></tr> </thead>
+            <tbody>
+    {% for commande in commande %}
+        <tr >
+            <td class="info"> {{ commande.idclient.nom }}</td>
+            <td class="success"> {{ commande.adresse }}</td>
+            <td class="danger"> {{  commande.ville }}</td>
+            <td class="info"> {{ commande.pays }}</td>
+            <td class="active"> {{ commande.date|date('Y-m-d') }}</td>
+            <td class="success">  {{ commande.num }} </td>
+            <td class="success"> {{ commande.total}}</td>
+            <td class="danger"><a href="{{ path('affichecommande',{'id':commande.id}) }}">affiche le panier</a></td>
+        </tr>
+    {% endfor %}
+            </tbody> </table>
+    </div>
+</div>
+    </div>
+    </div>
+
+</div>
+
+
+    <script>
+        function chercher() {
+            var filter=document.getElementById("search").value;
+            var xhr=new XMLHttpRequest();
+            xhr.open("GET","search.php?filter="+filter,true);
+            xhr.send(null);
+            xhr.onreadystatechange = function result() {
+                if ((xhr.status==200)&&(xhr.readyState==4)){
+                    document.getElementById("zone").innerHTML=xhr.responseText;
+                }
+            }
+
+
+        }
+    </script>
+    {{ parent() }}
+{% endblock %}
+
+
+

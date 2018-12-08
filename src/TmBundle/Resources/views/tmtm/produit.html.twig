@@ -1,0 +1,191 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+
+
+                <div class="header-section">
+                    <div class="top_menu">
+                        <div class="main-search">
+                            <form action="{{ path('tm_chercherproduit') }}" method="get">
+                                <input name="srchpro" type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
+                                <input type="submit" value=""/>
+                            </form>
+                            <div class="close"><img src="{{ asset('template/images/cross.png') }}" /></div>
+                        </div>
+                        <div class="srch"><button></button></div>
+                        <div> <h1 align="center">Bienvenue</h1>
+                        <script type="text/javascript">
+                            $('.main-search').hide();
+                            $('button').click(function (){
+                                    $('.main-search').show();
+                                    $('.main-search text').focus();
+                                }
+                            );
+                            $('.close').click(function(){
+                                $('.main-search').hide();
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="graph-form">
+
+
+
+            <br> <br>
+
+
+
+
+                <div class="graph">
+                    <div class="tables" width="80px"  >
+                        <h3 class="inner-tittle two"> Liste des Produits </h3>
+                        <table class="table" width="80px"> <thead> <tr>
+                                <th>Reference</th> <th>Nom</th> <th>Enseigne</th> <th>Categorie</th>
+                                <th>Prix</th><th>Description</th><th>Promotion</th> <th>Image</th>  <th>Nb Jaimes</th> <th>Date</th>  <th>Quantite</th><th>Supprimer</th> <th>Modifier</th></tr> </thead>
+                            <tbody>
+                            {% set i =0 %}
+                            {% for produit in produits %}
+
+                                {% if i % 2 == 1 %}
+                                {% set i=i+1 %}
+                                <tr class="info" >
+                                    <td > {{ produit.reference }}</td>
+                                    <td > {{ produit.nom }}</td>
+                                    <td > {{ produit.idenseigne.nom }}</td>
+                                    <td > {{ produit.categorie }}</td>
+                                    <td> {{ produit.prix }}</td>
+                                    <td > {{ produit.description }}</td>
+                                    <td >  {{ produit.promo}}</td>
+
+
+                                    <td><a href="home"><img width="50px" height="50px" src="{{ asset( 'images/' ~ produit.image) }}"></a></td>
+
+                                    <td > {{ produit.nbjaimes }}</td>
+                                    <td > {{ produit.date.format('Y-m-d') }}</td>
+                                    <td > {{ produit.quantite }}</td>
+                                    <td><a href="{{ path('deleteProduit',{'id':produit.id}) }}" onclick="return confirm('Etes vous sur de supprimer cet produit?')"><i width="100px" class="fa fa-trash-o"></i></a></td>
+
+                                    <td><a href="{{ path('modifierProduit',{'id':produit.id}) }}" onclick="return confirm('Etes vous sur de modifier cet produit?')"><i class="fa fa-pencil-square-o"></i></a></td>
+                                </tr>
+
+                            {% else %}
+                                {% set i=i+1 %}
+                                <tr class="" >
+                                    <td > {{ produit.reference }}</td>
+                                    <td > {{ produit.nom }}</td>
+                                    <td > {{ produit.idenseigne.nom }}</td>
+                                    <td > {{ produit.categorie }}</td>
+                                    <td> {{ produit.prix }}</td>
+                                    <td > {{ produit.description }}</td>
+                                    <td >  {{ produit.promo}}</td>
+
+
+                                    <td><a href="home"><img width="50px" height="50px" src="{{ asset( 'images/' ~ produit.image) }}"></a></td>
+
+                                    <td > {{ produit.nbjaimes }}</td>
+                                    <td > {{ produit.date.format('Y-m-d') }}</td>
+                                    <td > {{ produit.quantite }}</td>
+                                <td><a href="{{ path('deleteProduit',{'id':produit.id}) }}" onclick="return confirm('Etes vous sur de supprimer cet produit?')"><i width="100px" class="fa fa-trash-o"></i></a></td>
+
+                                <td><a href="{{ path('modifierProduit',{'id':produit.id}) }}" onclick="return confirm('Etes vous sur de modifier cet produit?')"><i class="fa fa-pencil-square-o"></i></a></td>
+                                </tr>
+                                 {% endif %}
+                            {% endfor %}
+                            </tbody> </table>
+                    </div>
+
+
+
+                    <div class="clearfix">
+                        <div class="graph">
+                            <div class="form-group1">
+                                <div class="form-group">
+                                    <div>
+
+                                        <div class="graph-form">
+
+                                            <div class="form-body">
+
+
+                                                <div>
+                                                    {% for flashMessage in app.session.flashbag.get('notice') %}
+
+                                                        <div class="alert alert-info">
+                                                            {{ flashMessage }}
+                                                        </div>
+
+                                                    {% endfor %}
+                                                </div>
+
+
+
+                                                <h3 class="inner-tittle two">ajouter</h3>
+
+                                                {{ form(Form) }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    {% for label, messages in app.flashes(['warning', 'error']) %}
+                                        {% for message in messages %}
+                                            <div class="alert alert-{{ label }}">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <link rel="stylesheet" href="{{ asset('template/css/vroom.css')}}"/>
+    <script type="text/javascript" src="{{ asset('template/js/vroom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/js/TweenLite.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatejs/CSSPlugin.min.js') }}"></script>
+    <script src="{{ asset('templatejs/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('templatejs/scripts.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('templatejs/bootstrap.min.js') }}"></script>
+
+{% endblock %}

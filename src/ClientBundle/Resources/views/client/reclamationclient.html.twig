@@ -1,0 +1,23 @@
+{% extends "index.html.twig" %}
+
+{% block body %}
+
+
+<div class="col-md-6 contact-form">
+    <div class="col-md-6 contact-form">
+    <div class="compose-mail-box">
+        <h4 class="white-w3ls">Contact <span>Form</span></h4>
+        <div class="panel-body">
+            <div class="alert alert-info">
+                Please fill details to send a new message
+            </div>
+            {{ form(Form) }}
+            {{ form_errors(Form) }}
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}
+

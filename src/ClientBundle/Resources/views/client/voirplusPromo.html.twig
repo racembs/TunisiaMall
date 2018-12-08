@@ -1,0 +1,213 @@
+{% extends '::index.html.twig' %}
+{% block head %}
+
+    <title>Smart Shop a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Smart Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <!-- pignose css -->
+    <link href="{{ asset('css/pignose.layerslider.css')}}" rel="stylesheet" type="text/css" media="all" />
+
+
+    <!-- //pignose css -->
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js')}}"></script>
+    <!-- //js -->
+    <!-- cart -->
+    <script src="{{ asset('js/simpleCart.min.js')}}"></script>
+    <!-- cart -->
+    <!-- for bootstrap working -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap-3.1.1.min.js')}}"></script>
+    <!-- //for bootstrap working -->
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+    <script src="{{ asset('js/jquery.easing.min.js')}}"></script>
+    <br>
+
+{% endblock %}
+
+{% block body %}
+
+
+
+    <br>
+
+
+
+
+
+
+    <title>Youth Fashion A Ecommerce Category Flat Bootstrap Responsive Website Template | Singlepage :: w3layouts</title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ asset('ons/js/jquery.min.js')}}"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Youth Fashion Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <!-- start menu -->
+    <script src="{{ asset('ons/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('ons/js/simpleCart.min.js')}}"> </script>
+    <!-- slide -->
+    <script src="{{ asset('ons/js/responsiveslides.min.js')}}"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
+
+
+    <body>
+
+
+    <div class="single">
+
+        <div class="container">
+            <div class="col-md-9">
+                <div class="col-md-5 grid">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li data-thumb="{{ asset( 'images/' ~ img) }}">
+                                <div class="thumb-image"> <img src="{{ asset( 'images/' ~ img) }}" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                            <li data-thumb="{{ asset( 'images/' ~ img) }}">
+                                <div class="thumb-image"> <img src="{{ asset( 'images/' ~ img) }}" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                            <li data-thumb="{{ asset( 'images/' ~ img) }}">
+                                <div class="thumb-image"> <img src="{{ asset( 'images/' ~ img) }}" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-7 single-top-in">
+                    <div class="single-para simpleCart_shelfItem">
+                        <h2 style="color: #2fdab8"> Nom : {{  ref}}</h2> <br>
+
+                        <p style="size:10px "> Description : {{  des }}</p> <br>
+                        <div class="star-on">
+
+                            <div class="review">
+                                <h4 style="size:10px">  Enseigne : {{  e }}</h4> <br>
+                                <h4 style="size:10px"> Quantité disponible : {{  cat }}</h4> <br>
+                                <h4 style="size:10px "> Date d'expiration: {{  nom.format('Y-m-d')}}</h4> <br>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                        <label  class="add-to item_price"> Prix: {{  p }} DT</label>
+
+
+                    </div>
+                    <form method="POST" action="{{ path('promo_quantite',{'id':id})}}">
+                        <select  name="qt">
+                            <option >1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+
+                        <button style="background-color: #2fdab8;margin-left: 20px" type="submit" onclick="return confirm('Veuillez verifier votre boite email')" >
+                            <a class="item_add single-item hvr-outline-out button2">Resérver</a>
+                        </button>
+
+                    </form>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    </div>
+    <!--footer-->
+    <!-- slide -->
+    <script src="{{ asset('ons/js/jquery.min.js')}}"></script>
+    <script src="{{ asset('ons/js/imagezoom.js')}}"></script>
+    <!-- start menu -->
+    <script type="text/javascript" src="{{ asset('ons/js/memenu.js')}}"></script>
+    <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+    <script src="{{ asset('ons/js/simpleCart.min.js')}}"> </script>
+    <!--initiate accordion-->
+    <script type="text/javascript">
+        $(function() {
+            var menu_ul = $('.menu-drop > li > ul'),
+                menu_a  = $('.menu-drop > li > a');
+            menu_ul.hide();
+            menu_a.click(function(e) {
+                e.preventDefault();
+                if(!$(this).hasClass('active')) {
+                    menu_a.removeClass('active');
+                    menu_ul.filter(':visible').slideUp('normal');
+                    $(this).addClass('active').next().stop(true,true).slideDown('normal');
+                } else {
+                    $(this).removeClass('active');
+                    $(this).next().stop(true,true).slideUp('normal');
+                }
+            });
+
+        });
+    </script>
+    <!-- FlexSlider -->
+    <script defer src="{{ asset('ons/js/jquery.flexslider.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset('ons/css/flexslider.css')}}" type="text/css" media="screen" />
+
+    <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+    </script>
+    <!---pop-up-box---->
+    <link href="{{ asset('ons/css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all"/>
+    <script src="{{ asset('ons/js/jquery.magnific-popup.js')}}" type="text/javascript"></script>
+    <!---//pop-up-box---->
+    <script>
+        $(document).ready(function() {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    </body>
+
+    <br> <br>
+{% endblock %}

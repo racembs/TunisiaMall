@@ -1,0 +1,13 @@
+<body style="background-color: black">
+    <center style="background-color:white;margin: auto">
+        <img src="data:image/png;base64,
+{{ barcode({code: codepark, type: 'qrcode', format: 'png', width: 10, height: 10, color: [0,0,0,0.8]}) }}
+" />
+
+    </center>
+     <h3 style="color: white"> Mr {{ nom }} {{ prenom }}veuillez scanner ce QRcode pour avoir accés a la place reserver au parking</h3>
+      <a href="{{ path('parking')}}"> Page Précedente</a>
+
+</body>
+
+

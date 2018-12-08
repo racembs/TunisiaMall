@@ -1,0 +1,97 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <div class="clearfix">
+                    <div class="graph">
+                        <div class="header-section">
+                            <div class="top_menu">
+                                <div class="main-search">
+                                    <form action="{{ path('tm_chercherpromotion') }}" method="get"  enctype="multipart/form-data">
+                                        <input name="srchpro" type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
+                                        <input type="submit" value=""/>
+                                    </form>
+                                    <div class="close"><img src="{{ asset('template/images/cross.png') }}" /></div>
+                                </div>
+                                <div class="srch"><button></button></div>
+                                <script type="text/javascript">
+                                    $('.main-search').hide();
+                                    $('button').click(function (){
+                                            $('.main-search').show();
+                                            $('.main-search text').focus();
+                                        }
+                                    );
+                                    $('.close').click(function(){
+                                        $('.main-search').hide();
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="clearfix">
+                            <div class="graph">
+                        <div class="form-group">
+                            <div class="form-group">
+
+                                <form method="post">
+                                    {{ form(form) }}
+
+                                </form>
+                                <div>
+                        {% for flashMessage in app.session.flashbag.get('notice') %}
+
+                            <div class="alert alert-danger">
+                                {{ flashMessage }}
+                            </div>
+
+                        {% endfor %}
+                                </div>
+
+                                {% for label, messages in app.flashes(['warning', 'error']) %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ label }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+
+    <script src="{{ asset('template/js/bootstrap.min.js') }}"></script>
+    {{ parent() }}
+{% endblock %}

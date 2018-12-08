@@ -1,0 +1,22 @@
+mobile:
+    resource: "@MobileBundle/Resources/config/routing.yml"
+    prefix:   /mobile
+
+esprit_api:
+    resource: "@EspritApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+client:
+    resource: "@ClientBundle/Resources/config/routing.yml"
+    prefix:   /client
+
+tm:
+    resource: "@TmBundle/Resources/config/routing.yml"
+    prefix:   /tm
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

@@ -1,0 +1,24 @@
+esprit_api_homepage:
+    path:     /
+    defaults: { _controller: EspritApiBundle:Default:index }
+allpromo:
+    path:     /promotions/all
+    defaults: { _controller: EspritApiBundle:mobile:all }
+findpromo:
+    path:     /promotions/find/{id}
+    defaults: { _controller: EspritApiBundle:mobile:find }
+creatPro:
+    path:     /promotions/new
+    defaults: { _controller: EspritApiBundle:mobile:new }
+parkAffich:
+    path:     /promotions/affichPark/{date}/{he}
+    defaults: { _controller: EspritApiBundle:mobile:affichPark }
+parkReserver:
+    path:     /promotions/parkReserver/{date}/{he}/{hs}/{nbP}
+    defaults: { _controller: EspritApiBundle:mobile:parkReserver }
+qtitepromo:
+    path:     /promotions/quantite/{id}/{qt}
+    defaults: { _controller: EspritApiBundle:mobile:quantite }
+allpm:
+    path:     /promotions/allpm/{id}
+    defaults: { _controller: EspritApiBundle:mobile:allpm }

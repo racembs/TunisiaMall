@@ -1,0 +1,87 @@
+{% extends "::indexadmin.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+
+    <br><h3 class="inner-tittle two" style="text-align: center">Clients de Tunisia Mall</h3><br><br>
+
+    <form method="POST" align="center">
+
+        <input type="text" name="search">
+        <input type="submit" value="chercher">
+
+    </form>
+
+    <br>
+    <div class="graph">
+    <div class="tables">
+
+        <h3 class="inner-tittle two" style="text-align: center">{{ etat }}</h3>
+        <table class="table">
+            <thead> <tr> <th>#</th>
+                <th>#</th>
+                <th>#</th>
+                <th>#</th>
+
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Login</th>
+                <th>Cin</th>
+                <th>Etat</th>
+                <th></th>
+            </tr> </thead>
+
+            <tbody>
+            {% set i =0 %}
+
+            {% for client in clients %}
+
+
+                {% if client.enabled==0 %}
+                 <tr style="background-color:  #ff8478"> <th scope="row"></th> <th scope="row"></th>  <th scope="row"></th> <th scope="row"></th> <td>{{ client.nom }}</td> <td>{{ client.Prenom }}</td>
+
+                        <td>{{ client.email }}</td>  <td>{{ client.username }}</td>  <td>{{ client.Cin }}</td>
+
+                        <td>Bloqué</td> <td><a href="{{ path('tm_clientmodif',{'id':client.id}) }}">Modifier</a> </td> </tr>
+
+                {% elseif i % 2 == 1 %}
+                    {% set i=i+1 %}
+                    <tr class="active"> <th scope="row"></th> <th scope="row"></th>  <th scope="row"><th scope="row"></th> <td>{{ client.nom }}</td> <td>{{ client.Prenom }}</td>
+                        <td>{{ client.email }}</td>  <td>{{ client.username }}</td>  <td>{{ client.Cin }}</td>
+                        <td>Non Bloqué</td> <td><a href="{{ path('tm_clientmodif',{'id':client.id}) }}">Modifier</a> </td> </tr>
+
+
+
+
+                {% else %}
+                    {% set i=i+1 %}
+                    <tr class="success"> <th scope="row"></th> <th scope="row"></th> <th scope="row"></th><th scope="row"></th> <td>{{ client.nom }}</td> <td>{{ client.Prenom }}</td>
+                        <td>{{ client.email }}</td>  <td>{{ client.username }}</td>    <td>{{ client.Cin }}</td>
+                        <td>Non Bloqué</td><td><a href="{{ path('tm_clientmodif',{'id':client.id}) }}">Modifier</a> </td> </tr>
+
+                {% endif %}
+
+
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function chercher() {
+            var filter=document.getElementById("search").value;
+            var xhr=new XMLHttpRequest();
+            xhr.open("GET","search.php?filter="+filter,true);
+            xhr.send(null);
+            xhr.onreadystatechange = function result() {
+                if ((xhr.status==200)&&(xhr.readyState==4)){
+                    document.getElementById("zone").innerHTML=xhr.responseText;
+                }
+            }
+
+
+        }
+    </script>
+{% endblock %}

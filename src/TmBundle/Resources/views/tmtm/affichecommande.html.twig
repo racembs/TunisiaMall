@@ -1,0 +1,61 @@
+{% extends "indexadmin.html.twig" %}
+{% block body %}
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="inner-content">
+            <div class="graph">
+                <div class="table table-striped table-hover">
+                    <h3 class="inner-tittle two">      le panier </h3>
+                    <table class="table table-striped table-hover"> <thead> <tr>
+
+
+
+
+
+                            <th>nomproduit</th> <th>prix</th> <th>quantite</th> <th>promo</th>
+                            <th>total</th></tr> </thead>
+                        <tbody>
+                        {% set foo="" %}
+                        {% if lignecommande|length == 0 %}
+                            <tr>
+                                <td colspan="7"><center>Aucun articles dans votre panier</center></td>
+                            </tr>
+                        {% endif %}
+                        {% for lignecommande in lignecommande %}
+                            <tr >
+                                <td class="success"> {{ lignecommande.idProduit.nom}}</td>
+                                <td class="info"> {{ lignecommande.prix }}</td>
+                                <td class="danger"> {{  lignecommande.quantite }}</td>
+                                <td class="active"> {{ lignecommande.promo }}</td>
+                                <td class="success">  {{ lignecommande.total}} </td>
+
+
+
+
+                            </tr>
+                            {% set foo=lignecommande.total+foo %}
+
+                        {% endfor %}    <td class=""> </td>
+                        <td class=""> </td>
+                        <td class=""> </td>
+
+                        <td> Votre Total est:</td>
+                        <td class="danger"> {{ foo }}</td>
+
+                        <td class="danger"><a href="{{ path('retourner' )}}">Retourner</a></td>
+
+
+                    </table>
+
+                    </tbody>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    {{ parent() }}
+{% endblock %}

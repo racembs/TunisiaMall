@@ -1,0 +1,78 @@
+{% extends '::index.html.twig' %}
+{% block body %}
+
+<br> <h3 class="inner-tittle two" style="text-align: center">Points de fiélités</h3><br><br>
+
+<div class="graph">
+    <div class="tables">
+        <table class="table">
+            <thead> <tr><th>Type de carte</th><th>Boutique</th> <th>Nombre de points</th><th>Bon D'achat</th> <th>Totale des transformations effectuée</th>  </tr> </thead>
+
+            <tbody>
+            {% set i =0 %}
+            {% for carte in cartes %}
+                {% set bon=carte.idenseigne.pourcentagefidalite*carte.nbrpts %}
+
+                {% if carte.type=="basic" %}
+
+                    <tr style="background-color: #808080"><td>{{ carte.type|upper }}</td><td>{{ carte.idenseigne.nom }}</td> <td>{{ carte.nbrpts }}</td><td>{{ carte.idenseigne.pourcentagefidalite*carte.nbrpts }}dt</td> <td>{{ carte.totale }}Dt</td>
+                        {% if bon>99 %}
+                        <td><a href="{{ path('client_transformer',{'id':carte.id,'bon':bon }) }}" style="color: #393939" >Transformer</a> </td>
+                        {% else %}
+                        <td style="color: #545454">Transformer</td>
+                        {% endif %}
+                    </tr>
+
+
+
+                {% elseif carte.type=="premium" %}
+
+                    <tr style="background-color:#02ADBB ">  <td>{{ carte.type|upper  }}</td> <td>{{ carte.idenseigne.nom }}</td> <td>{{ carte.nbrpts }}</td><td>{{ carte.idenseigne.pourcentagefidalite*carte.nbrpts }}dt</td> <td>{{ carte.totale }}Dt</td>
+                        {% if bon>99 %}
+                            <td><a href="{{ path('client_transformer',{'id':carte.id,'bon':bon}) }}" style="color: #393939" >Transformer</a> </td>
+                        {% else %}
+                            <td style="color: #545454">Transformer</td>
+                        {% endif %}
+
+                    </tr>
+
+                {% else %}
+                    <tr style="background-color: goldenrod"> <td>{{ carte.type|upper  }}</td> <td>{{ carte.idenseigne.nom }}</td> <td>{{ carte.nbrpts }}</td><td>{{ carte.idenseigne.pourcentagefidalite*carte.nbrpts }}dt</td> <td>{{ carte.totale }}Dt</td>
+                        {% if bon>99 %}
+                            <td><a href="{{ path('client_transformer',{'id':carte.id,'bon':bon}) }}" style="color: #393939" >Transformer</a> </td>
+                        {% else %}
+                            <td style="color: #545454">Transformer</td>
+                        {% endif %}
+                    </tr>
+
+                {% endif %}
+
+
+
+
+            {% endfor %}
+
+
+            </tbody> </table>
+        <a href="#" style="margin: 650px" id="info">Informations sur les cartes</a>
+    </div>
+</div>
+
+    <div id="zone">
+        <label style="color: #808080" >Basic Carte:</label><p >Lors de l'inscription vous resevrez automatiquement cette carte avec 50 Pts de fidélité offerte par TunisiaMall</p><br>
+        <label style="color: #02ADBB">Premium Carte:</label><p style="color: #02ADBB">Lors de l'atténuation d'un totale de transformation de 1000Dt vous migrez automatiquement vers cette carte<br>Avec cette carte vous resevrez des offres spéciales </p><br>
+        <label style="color: goldenrod">Gold Carte:</label><p style="color: goldenrod">Lors de l'atténuation d'un totale de transformation de 5000Dt vous migrez automatiquement vers cette carte<br>Avec cette carte vous resevrez des offres GOLD<br>Livraison gratuite sur tous les achats qui dépasse 100Dt </p><br>
+        <p style="color: #ff6662">NB:Il est possible de transformer votre point lors du dépassement d'un bon d'achat de 100Dt</p><br>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#zone").hide();
+            $("#info").click(function(){
+                $("#zone").show();
+            });
+        });
+
+    </script>
+    {% endblock %}
+

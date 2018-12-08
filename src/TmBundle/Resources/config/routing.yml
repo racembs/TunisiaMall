@@ -1,0 +1,138 @@
+tm_homepage:
+    path:     /home
+    defaults: { _controller: TmBundle:Tm:home }
+tm_loginpage:
+    path:     /login
+    defaults: { _controller: TmBundle:Tm:login }
+tm_promotion:
+    path:     /promo
+    defaults: { _controller: TmBundle:Tm:promo }
+tm_enseigne:
+    path:     /enseigne
+    defaults: { _controller: TmBundle:Tm:enseigne }
+
+tm_client:
+    path:     /client
+    defaults: { _controller: TmBundle:Tm:client }
+
+tm_commande:
+    path:     /commande
+    defaults: { _controller: TmBundle:Tm:commande }
+
+
+tm_clientmodif:
+    path:     /clientmodif
+    defaults: { _controller: TmBundle:Tm:modifClient }
+
+
+
+tm_produit:
+    path:     /produit
+    defaults: { _controller: TmBundle:Tm:produit }
+
+deleteProduit:
+    path:     /deleteProduit
+    defaults: { _controller: TmBundle:Tm:deleteProduit }
+
+modifierProduit:
+    path:     /modifierProduit
+    defaults: { _controller: TmBundle:Tm:modifierProduit }
+
+AjoutProduit:
+    path:     /AjoutProduit
+    defaults: { _controller: TmBundle:Tm:ajoutProduit }
+
+
+tm_chercherproduit:
+    path:     /produitSearch
+    defaults: { _controller: TmBundle:Tm:produitSearch }
+
+tm_stat:
+    path:     /Statistiques
+    defaults: { _controller: TmBundle:Tm:Statistiques }
+
+
+
+
+
+
+tm_promotionSupprimer:
+    path:     /promosupprimer
+    defaults: { _controller: TmBundle:Tm:promosupprimer }
+tm_ajouterpromotion:
+    path:     /promoajouter
+    defaults: { _controller: TmBundle:Tm:promoajouter }
+tm_modifierpromotion:
+    path:     /promoModifier
+    defaults: { _controller: TmBundle:Tm:promoModifier }
+tm_chercherpromotion:
+    path:     /promoSearch
+    defaults: { _controller: TmBundle:Tm:promoSearch }
+tm_chercherpromoajax:
+    path:     /chercherpromoajax
+    defaults: { _controller: TmBundle:Tm:chercherpromoajax }
+
+
+affichecommande:
+    path:     /affichecommande
+    defaults: { _controller: TmBundle:Tm:affichecommande }
+retourner:
+    path:     /retourner
+    defaults: { _controller: TmBundle:Tm:retourner }
+commandesearch:
+    path:     /commandesearch
+    defaults: { _controller: TmBundle:Tm:commandesearch }
+commandesearchuser:
+    path:     /commandesearchuser
+    defaults: { _controller: TmBundle:Tm:commandesearchuser }
+
+
+
+
+
+
+
+deleteEnseigne:
+    path:     /deleteEnseigne
+    defaults: { _controller: TmBundle:Enseigne:deleteEnseigne }
+
+addenseigne:
+    path:     /addenseigne
+    defaults: { _controller: TmBundle:Enseigne:addenseigne }
+
+
+updateenseigne:
+    path:     /updateenseigne/{id}
+    defaults: { _controller: TmBundle:Enseigne:updateenseigne }
+
+searchEnseigne:
+    path:     /searchEnseigne
+    defaults: { _controller: TmBundle:Enseigne:searchEnseigne }
+
+tm_Reclam:
+    path:     /reclamations
+    defaults: { _controller: TmBundle:Enseigne:reclamations }
+
+
+
+
+tm_offreEmp:
+    path:     /offreEmp
+    defaults: { _controller: TmBundle:Offre:offreEmp }
+
+tm_offreSupprimer:
+    path:     /offresupprimer
+    defaults: { _controller: TmBundle:Offre:offresupprimer }
+
+tm_offreAjouter:
+    path:     /ajouter
+    defaults: { _controller: TmBundle:Offre:addoffre }
+
+tm_offremodifier:
+    path: /updateoffre
+    defaults: { _controller: TmBundle:Offre:updateoffre }
+
+tm_offrearchiver:
+    path: /archiveoffre
+    defaults: { _controller: TmBundle:Offre:archiveoffre }
+

@@ -1,0 +1,117 @@
+{% extends '::index.html.twig' %}
+{% block head %}
+
+
+
+    <title>Smart Shop a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Smart Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <!-- pignose css -->
+    <link href="{{ asset('css/pignose.layerslider.css')}}" rel="stylesheet" type="text/css" media="all" />
+
+
+    <!-- //pignose css -->
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js')}}"></script>
+    <!-- //js -->
+    <!-- cart -->
+    <script src="{{ asset('js/simpleCart.min.js')}}"></script>
+    <!-- cart -->
+    <!-- for bootstrap working -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap-3.1.1.min.js')}}"></script>
+    <!-- //for bootstrap working -->
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+    <script src="{{ asset('js/jquery.easing.min.js')}}"></script>
+    <br>
+
+{% endblock %}
+
+{% block body %}
+
+
+
+<br>
+
+
+
+
+<br>
+
+
+
+
+<div class="product-easy">
+    <div class="container">
+
+        <script src="{{ asset('js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#horizontalTab').easyResponsiveTabs({
+                    type: 'default', //Types: default, vertical, accordion
+                    width: 'auto', //auto or any width like 600px
+                    fit: true   // 100% fit in a container
+                });
+            });
+
+        </script>
+        <div class="sap_tabs">
+            <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                <ul class="resp-tabs-list">
+                    <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Collection Accessoires</span></li>
+
+                </ul>
+                <div class="resp-tabs-container">
+                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                        <div style="background-color: red">{{ msg }}</div>
+                        {% for produit in produits %}
+                            <div class="col-md-3 product-men">
+
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img width="200" height="250px" src="{{ asset( 'images/' ~ produit.image) }}" alt="" class="pro-image-front">
+                                        <img width="200" height="250px" src="{{ asset( 'images/' ~ produit.image) }}" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="{{ path('voirplus',{'id':produit.id}) }}" class="link-product-add-cart">Voir Plus</a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4>{{ produit.nom }}</h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">{{ produit.prix }} DT</span>
+
+                                        </div>
+                                        <a href="{{ path('LikeProduitAccessoires',{'id':produit.id}) }}" class="item_add single-item hvr-outline-out button2">J'aime</a> <span class="fa fa-thumbs-o-up">{{ produit.nbjaimes }}</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        {% endfor %}
+
+
+
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <br> <br>
+{% endblock %}

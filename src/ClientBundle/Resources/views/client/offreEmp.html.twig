@@ -1,0 +1,44 @@
+
+{% extends "index.html.twig" %}
+{% block body %}
+
+
+    <form method="post">
+
+
+        <input type="text" name="criteria" placeholder="poste,description,salaire,compétances" class="form-control"/>
+        <input type="submit" value="rechercher" class="btn btn-info"/> <br> <br> <br>
+
+        <br> <h3 class="inner-tittle two" style="text-align: center">Offres d'emplois</h3><br><br>
+        <div class="graph">
+            <div class="tables">
+                <table class="table">
+                    <thead> <tr>
+                        <th>poste</th>
+                        <th>dateExperation</th>
+                        <th>datePost</th>
+                        <th>description</th>
+                        <th>salaire</th>
+                        <th>compétance</th> </thead>
+                    <tbody>
+                    {% for offre in offres%}
+
+                        <tr class="active">
+                            <td class="danger">{{ offre.poste }}</td>
+
+                            <td class="info">{{ offre.dateExperation.format('Y-m-d') }}</td>
+                            <td class="active">{{ offre.datePoste.format('Y-m-d')  }}</td>
+                            <td class="warning">{{ offre.description  }}</td>
+                            <td class="active">{{ offre.sal  }}</td>
+                            <td class="success" >{{ offre.competance  }}</td>
+
+                        </tr>
+
+                    {% endfor %}
+
+
+                    </tbody> </table>
+            </div>
+    </form>
+{% endblock %}
+

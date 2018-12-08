@@ -1,0 +1,82 @@
+{% extends "indexadmin.html.twig" %}
+
+{% block body %}
+
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+                <div class="graph-form">
+                    <div class="form-body">
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="graph">
+                    <div class="tables">
+                        <h3 class="inner-tittle two">      Les Offres d'emplois </h3>
+                        <table class="table"> <thead> <tr>
+                                <th>Id</th>
+                                <th>poste</th>
+                                <th>dateExperation</th>
+                                <th>datePoste</th>
+                                <th>description</th></thead>
+                            <tbody>
+
+                            {% for offre in offres%}
+                                <tr>
+                                    <td class="success"> {{ offre.id  }}</td>
+                                    <td lass="danger"> {{ offre.poste }}</td>
+                                    <td class="info"> {{ offre.dateExperation.format('Y-m-d') }}</td>
+                                    <td class="active"> {{ offre.datePoste.format('Y-m-d') }}</td>
+                                    <td class="warning"> {{  offre.description }}</td>
+                                    <td><a href="{{ path('tm_offreSupprimer',{'id':offre.id}) }}">supprimer</a></td>
+                                    <td><a href="{{ path('tm_offremodifier',{'id':offre.id}) }}">Mettre à jour </a> </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody> </table>
+                        <a href="{{ path('tm_offreAjouter') }}">Ajouter un offre</a> <br> <br>
+                        <a href="{{ path('tm_offrearchiver') }}">Consulter les offres archivés</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <link rel="stylesheet" href="{{ asset('template/css/vroom.css')}}"/>
+    <script type="text/javascript" src="{{ asset('template/js/vroom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/js/TweenLite.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatejs/CSSPlugin.min.js') }}"></script>
+    <script src="{{ asset('templatejs/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('templatejs/scripts.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('templatejs/bootstrap.min.js') }}"></script>
+    {{ parent() }}
+{% endblock %}
